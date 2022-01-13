@@ -1,0 +1,149 @@
+<!-- wish -->
+<div id="signup" class="about-box" style="padding-bottom: 0;">
+    <div class="about-a1">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="title-box">
+                        <h2>Please Signup</h2>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="row">
+                <div class="row align-items-center about-main-info">
+
+
+                    <div class="col-lg-12 col-md-12 col-sm-12" *ngIf="userAuth">
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <h4 class="alert-heading">Well done!</h4>
+                            <p>Hi {{userAuth?.userId?.name}} have signed up Successfully. your password is <b><u> {{userAuth.password}} </u></b></p>
+                            <hr>
+                            <p class="mb-0">Please note this password to reveal your child.</p>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="container h-100">
+                            <div class="row d-flex justify-content-center align-items-center h-100">
+                                <div class="col-lg-12 col-xl-11">
+                                    <div class="card text-black" style="border-radius: 25px;">
+                                        <div class="card-body p-md-5">
+                                            <div class="row justify-content-center">
+                                                <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+                                                    <form (ngSubmit)="onSubmit()" [formGroup]="profileForm">
+                                                        <div class="row">
+                                                            <div class="col-md-6 mb-4">
+                                                                <div class="form-outline">
+                                                                    <input type="text" id="name" required name="name" class="form-control form-control-lg" formControlName="name" />
+                                                                    <label class="form-label" for="firstName">
+                                                                        Full Name
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6 mb-4">
+                                                                <div class="form-outline">
+                                                                    <input type="text" required id="empId" name="userId" formControlName="userId" class="form-control form-control-lg" />
+                                                                    <label class="form-label" for="lastName">
+                                                                        EmpId
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6 mb-4">
+                                                                <h6 class="mb-2 pb-1">Team: </h6>
+                                                                <div class="form-check form-check-inline" *ngFor="let team of this.teams ">
+                                                                    <input class=" form-check-input" type="checkbox" (change)="onChecked($event)" required name="inlineRadioOptions" id="{{team}}" value="{{team}}" formControlName="teams2" name={{team}} />
+                                                                    <label class="form-check-label" for="femaleGender">
+                                                                        {{team}}
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6 mb-4 pb-2">
+                                                                <div class="form-outline">
+                                                                    <input type="email" id="emailAddress" required name="emailId" formControlName="emailId" class="form-control form-control-lg" />
+                                                                    <label class="form-label" for="emailAddress">
+                                                                        Email
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6 mb-4 pb-2">
+
+                                                                <div class="form-outline">
+                                                                    <input type="text" id="phoneNumber" required name="mobileNumber" formControlName="mobileNumber" class="form-control form-control-lg" />
+                                                                    <label class="form-label" for="phoneNumber">
+                                                                        Phone Number
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6 mb-4 pb-2">
+                                                                <div class="form-outline">
+                                                                    <input type="tel" id="_preference" name="preference" formControlName="preference" class="form-control form-control-lg" />
+                                                                    <label class="form-label" for="_preference">
+                                                                        Gift Preference
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6 mb-4 pb-2">
+                                                                <div class="form-outline">
+                                                                    <input type="text" id="_preference" required name="postalCode" formControlName="postalCode" class="form-control form-control-lg" />
+                                                                    <label class="form-label" for="_postalCode">
+                                                                        Postal Code
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-12">
+
+                                                                <textarea class="form-control" id="_deliveryAddress" required name="deliveryAddress" formControlName="deliveryAddress" rows="3">
+                                                                </textarea>
+                                                                <label class="form-label select-label">
+                                                                    Delivery Address
+                                                                </label>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="mt-4 pt-2">
+                                                            <input class="btn btn-danger btn-lg" [disabled]="profileForm.invalid" type="submit" value="Submit" />
+                                                        </div>
+
+                                                    </form>
+
+                                                </div>
+                                                <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+
+                                                    <img src="./assets/images/w1.png" class="img-fluid" alt="Sample image">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- wish us -->

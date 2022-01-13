@@ -1,0 +1,93 @@
+@import url(https://fonts.googleapis.com/css2?family=Engagement&family=Mea+Culpa&family=Pushster&family=The+Nautigal&family=Vujahday+Script&display=swap%22);
+.main-container {
+    height: auto;
+    position: relative;
+    text-align: center;
+    padding: 0%;
+}
+
+.image-container {
+    background-image: url('../../assets/images/certificate.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    /* background-attachment: fixed; */
+    min-height: auto;
+}
+
+.main-header {
+    color: firebrick;
+    font-size: 40px;
+    font-weight: bold;
+    font-family: ui-sans-serif;
+    padding-top: 80px;
+    display: flex;
+    flex-direction: column;
+    max-width: 900px;
+    margin: auto;
+}
+
+.name {
+    font-size: 70px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    padding-top: 80px;
+    font-family: 'Pushster', cursive;
+    font-weight: bold;
+    padding-top: 20px;
+    max-width: 867px;
+    margin: auto;
+    color: rgb(22, 21, 21);
+}
+
+.sub-title {
+    font-size: 18px;
+    padding-top: 22px;
+    color: rgb(22, 21, 21);
+}
+
+.award-desc {
+    font-size: 15px;
+    max-width: 550px;
+    margin: auto;
+    padding-top: 20px;
+    padding-bottom: 30px;
+    color: rgb(22, 21, 21);
+}
+
+.award-org {
+    display: flex;
+    justify-content: space-between;
+    font-size: 15px;
+    max-width: 419px;
+    margin: auto;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+
+.org-items {}
+
+.seperator {
+    height: 3px;
+    width: 135px;
+    background-color: grey;
+    padding-left: 21px;
+    margin-bottom: 12px;
+}
+
+.modal button.close {
+    z-index: 1000;
+}
+
+.modal-open {
+    z-index: 999999;
+}
+
+.modal-footer {
+    z-index: 999999;
+}
+
+.modal-footer button.btn {
+    z-index: 999999;
+}

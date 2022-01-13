@@ -1,0 +1,32 @@
+spring:
+  security:
+    user:
+      name: nithin
+      password: prasad
+      roles: ADMIN
+  datasource:
+    #url: jdbc:h2:mem:mydb
+    url: jdbc:h2:./test
+    username: sa
+    password: password
+    driverClassName: org.h2.Driver
+  h2:
+    console.enabled: true  
+    settings:
+        web-allow-others: true
+  jpa:
+    spring.jpa.database-platform: org.hibernate.dialect.H2Dialect
+    generate-ddl: true
+    show-sql: false
+    hibernate.ddl-auto: update
+server:
+  port: 7777 
+logging:
+  level:
+    org:
+      springframework:
+        security: INFO  
+admins: 982168,1620006
+
+
+ 

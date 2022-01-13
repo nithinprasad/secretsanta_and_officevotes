@@ -1,0 +1,44 @@
+<div class="container">
+    <button type="button" class="btn btn-warning" data-toggle="modal" [attr.data-target]="'#div'+team+questionId" data-backdrop="false">Certificate</button>
+
+    <div class="modal bd-example-modal-lg" id="div{{team}}{{questionId}}" tabindex="-1" role="dialog" [attr.aria-labelledby]="123" aria-hidden="true" data-backdrop="false">
+        <div class="modal-dialog modal-lg">
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+
+                <div class="main-container" id="print{{team}}{{questionId}}">
+                    <div class="image-container">
+                        <div class="text-container">
+                            <div class="main-header">
+                                {{award| uppercase }}
+                            </div>
+                            <div class="sub-title">
+                                This certificate is awarded to:
+                            </div>
+                            <div class="name">
+                                {{name |uppercase }}
+                            </div>
+                            <div class="award-desc">
+                                {{description}}
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" (click)="createPdf('print'+team+questionId)">Download</button>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+</div>

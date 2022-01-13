@@ -1,0 +1,26 @@
+{
+    "/user/**": {
+        "target": "https://mobiletest.tcsbancs.com/LMNR/XMAS/",
+        "secure": false,
+        "logLevel": "debug",
+        "changeOrigin": true
+    },
+    "/polls/**": {
+        "target": "https://mobiletest.tcsbancs.com/LMNR/XMAS/",
+        "secure": false,
+        "logLevel": "debug",
+        "changeOrigin": true
+    },
+    "/login**": {
+        "target": "https://mobiletest.tcsbancs.com/LMNR/XMAS/",
+        "secure": false,
+        "logLevel": "debug",
+        "changeOrigin": true
+    },
+    "/logout**": {
+        "target": "https://mobiletest.tcsbancs.com/LMNR/XMAS/",
+        "secure": false,
+        "logLevel": "debug",
+        "changeOrigin": true
+    }
+}

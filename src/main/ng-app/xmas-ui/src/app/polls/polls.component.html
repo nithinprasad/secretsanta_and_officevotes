@@ -1,0 +1,148 @@
+<div id="awards" class="about-box" style="padding-bottom: 0;">
+    <div class="about-a1">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="title-box">
+                        <h2>Awards !!</h2>
+                    </div>
+                </div>
+            </div>
+            <ul class="nav nav-tabs">
+                <li class="nav-item" *ngFor="let team of Teams;first as isFirst">
+                    <a [ngClass]="(isFirst)?'nav-link active':'nav-link'" (click)="clearFormArray()" aria-controls="personal" role="tab" data-toggle="tab" role="tab" aria-controls="ex3-tabs-1" aria-selected="true" href="#area{{team}}">{{team}}</a>
+                </li>
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content" style="padding-top: 20px">
+
+                <div role="tabpanel" [ngClass]="(isFirst)?'tab-pane fade show active':'tab-pane fade show'" id="area{{team}}" *ngFor="let team of Teams;first as isFirst">
+
+
+
+                    <div id="carouselExampleControls{{team}}" class="carousel slide" data-ride="carousel" data-interval="false">
+                        <div class="carousel-inner">
+
+                            <!-- <app-timer *ngIf="Question.get(team)?.length==0"></app-timer> -->
+
+                            <div class="row" *ngIf="(Question.get(team)?.length==0)">
+                                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                    <h4 class="alert-heading">Well done!</h4>
+                                    <p>You have answered all questions for {{team}} or Questions are not uploaded.</p>
+                                    <hr>
+                                    <p class="mb-0">Please watch this space for further updates .</p>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div [ngClass]="(isFirst)?'carousel-item active':'carousel-item'" *ngFor="let question of Question.get(team);count as count;first as isFirst;let i = index">
+                                <form [formGroup]="form" (ngSubmit)="onSubmit(question,team)">
+                                    <div class="d-flex justify-content-center row">
+                                        <div class="col-md-10 col-lg-10">
+                                            <div class="border">
+                                                <div class="question bg-white p-3 border-bottom">
+                                                    <div class="d-flex flex-row justify-content-between align-items-center mcq">
+                                                        <h3 class="text-danger">Q. {{question.questionText}}</h3>
+                                                        <span>{{i+1}} / {{count}} of {{team}}</span>
+                                                    </div>
+                                                </div>
+                                                <div class="question bg-white p-3 border-bottom">
+                                                    <div class="d-flex flex-row align-items-center question-title">
+
+                                                        <h5 class="mt-1 ml-2">{{question.description}}</h5>
+                                                    </div>
+
+                                                    <div class="question bg-white p-3 border-top"></div>
+                                                    <div class="row " *ngIf="! (Users.get(team)?.length==0)">
+                                                        <div class="col-3" *ngFor="let user of Users.get(team) ; let i = index">
+                                                            <label class="checkbox">
+                                                                <input type="checkbox" name="user"
+                                                                    value="{{user.userId}}" for="formQuestion"
+                                                                    (change)="onChecked(question,$event)">
+                                                                <span>{{user.name}}</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+
+
+
+
+                                                </div>
+                                                <div class="d-flex flex-row justify-content-between align-items-center p-3 bg-white">
+
+                                                    <a href="#carouselExampleControls{{team}}" role="button" data-slide="prev">
+                                                        <button [ngClass]="(isFirst)?'btn btn-primary d-flex align-items-center btn-danger disabled':'btn btn-primary d-flex align-items-center btn-danger'" role="button" data-slide="prev" type="button" (click)="clearFormArray()">
+
+                                                            Previous
+                                                        </button>
+                                                    </a>
+
+                                                    <div class="mt-4 pt-2">
+                                                        <input class="btn btn-primary border-success align-items-center btn-primary" [ngClass]="!isValid?'disabled':''" type="submit" value="Submit" />
+                                                    </div>
+
+
+
+                                                    <a href="#carouselExampleControls{{team}}" role="button" data-slide="next">
+                                                        <button class="btn btn-primary border-success align-items-center btn-success" role="button" data-slide="next" type="button" (click)="clearFormArray()"> 
+                                                            Next
+                                                        </button>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+
+
+                        <!--<div class="container mt-5" *ngFor="let question of Question.get(team)">
+                        
+
+
+                        <div class="d-flex justify-content-center row">
+                            <div class="col-md-10 col-lg-10">
+                                <div class="border">
+                                    <div class="question bg-white p-3 border-bottom">
+                                        <div class="d-flex flex-row justify-content-between align-items-center mcq">
+                                            <h4>{{question.QuestionText}}</h4><span>{{team}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="question bg-white p-3 border-bottom">
+                                        <div class="d-flex flex-row align-items-center question-title">
+                                            <h3 class="text-danger">Q.</h3>
+                                            <h5 class="mt-1 ml-2">{{question.Description}}</h5>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-3" *ngFor="let user of Users.get(team)">
+                                                <label class="checkbox"> <input type="checkbox" name="user"
+                                                        value="{{user.userId}}">
+                                                    <span>{{user.name}}</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="d-flex flex-row justify-content-between align-items-center p-3 bg-white">
+                                        <button class="btn btn-primary d-flex align-items-center btn-danger"
+                                            type="button"><i
+                                                class="fa fa-angle-left mt-1 mr-1"></i>&nbsp;previous</button><button
+                                            class="btn btn-primary border-success align-items-center btn-success"
+                                            type="button">Next<i class="fa fa-angle-right ml-2"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>

@@ -1,0 +1,189 @@
+<!-- Start header -->
+<header class="top-header">
+    <nav class="navbar header-nav navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><img src="./assets/images/logo.png" alt="image"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-wd" aria-controls="navbar-wd" aria-expanded="false" aria-label="Toggle navigation">
+				<span></span>
+				<span></span>
+				<span></span>
+			</button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbar-wd">
+                <ul class="navbar-nav">
+                    <li><a class="nav-link active" href="#home">Home</a></li>
+                    <li><a class="nav-link" href="#wish">Wish</a></li>
+                    <li><a class="nav-link" href="#signup">Signup</a></li>
+                    <li><a class="nav-link" href="#users">Users</a></li>
+                    <li><a class="nav-link" href="#awards">Awards</a></li>
+                    <li><a class="nav-link disabled" results href="#results">Results</a></li>
+                    <!--<li><a class="nav-link" href="#b-deals">Best deals</a></li>-->
+                    <li><a class="nav-link" href="#donate">Gallery</a></li>
+                    <!--<li><a class="nav-link" href="#testi">Testimonial</a></li>-->
+                    <li><a class="nav-link" href="#contact">Contact</a></li>
+                    <li *ngIf="!isLoggedin"><a class="nav-link" href="#" data-toggle="modal" data-target="#login">Login</a></li>
+                    <li *ngIf="isLoggedin" class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-fw fa-user"></i>
+                        </a>
+                        <a class="nav-link"> </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#" *ngIf="isChild" data-toggle="modal" data-target="#child">Child</a>
+                            <a class="dropdown-item" href="/logout">Logout</a>
+                        </div>
+
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<!-- End header -->
+
+<!-- Start Banner -->
+<div class="ulockd-home-slider">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="pogoSlider" id="js-main-slider">
+                <div class="pogoSlider-slide" style="background-image:url(./assets/images/slider-01.jpg);"></div>
+                <div class="pogoSlider-slide" style="background-image:url(./assets/images/slider-01.jpg);"></div>
+            </div>
+            <!-- .pogoSlider -->
+        </div>
+    </div>
+</div>
+<!-- End Banner -->
+
+
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="container">
+    <div class="row">
+        <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="alert alert-success" role="alert" *ngIf="isLoggedin">
+                            Login Sucessfull
+                        </div>
+                        <div class="alert alert-danger" role="alert" *ngIf="!isLoggedin && isSubmitted">
+                            Authentication Failed
+                        </div>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+                    </div>
+                    <div class="modal-body">
+                        <form (ngSubmit)="onSubmit()">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Employee Id</label>
+                                <input type="email" class="form-control" name="username" id="exampleInputEmail1" required aria-describedby="emailHelp" placeholder="Enter employee id" [(ngModel)]="username">
+
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Password</label>
+                                <input type="password" class="form-control" id="exampleInputPassword1" name="password" required placeholder="Password" [(ngModel)]="password">
+                            </div>
+                            <input type="submit" class="btn btn-danger">
+
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="child" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" *ngIf="isChild">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- contact -->
+                        <div id="child2" class="contact-box" style="background: #f7f7f7;">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="title-box">
+                                            <h2>Child </h2>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+
+                                    <div class="col">
+                                        <div class="left-contact">
+                                            <div class="media cont-line">
+                                                <div class="media-left icon-b">
+                                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                                </div>
+                                                <div class="media-body dit-right">
+                                                    <h4>Name</h4>
+                                                    <p>{{userGiftService.user.name}}</p>
+                                                    <p><span class="badge badge-outline badge-sm badge-info badge-pill" *ngFor="let team of userGiftService.user.team  ">{{team}}</span>
+                                                </div>
+                                            </div>
+                                            <div class="media cont-line">
+                                                <div class="media-left icon-b">
+                                                    <i class="fa fa-gift" aria-hidden="true"></i>
+                                                </div>
+                                                <div class="media-body dit-right">
+                                                    <h4>Preference</h4>
+                                                    <p>{{userGiftService.preference}}</p>
+                                                </div>
+                                            </div>
+                                            <div class="media cont-line">
+                                                <div class="media-left icon-b">
+                                                    <i class="fa fa-location-arrow" aria-hidden="true"></i>
+                                                </div>
+                                                <div class="media-body dit-right">
+                                                    <h4>Address</h4>
+                                                    <p>{{userGiftService.deliveryAddress}}</p>
+                                                    <p>{{userGiftService.postalCode}}</p>
+                                                </div>
+                                            </div>
+                                            <div class="media cont-line">
+                                                <div class="media-left icon-b">
+                                                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                                                </div>
+                                                <div class="media-body dit-right">
+                                                    <h4>Email</h4>
+                                                    <a href="#">{{userGiftService.user.emailId}}</a><br>
+                                                </div>
+                                            </div>
+                                            <div class="media cont-line">
+                                                <div class="media-left icon-b">
+                                                    <i class="fa fa-volume-control-phone" aria-hidden="true"></i>
+                                                </div>
+                                                <div class="media-body dit-right">
+                                                    <h4>Phone Number</h4>
+                                                    <a href="#">{{userGiftService.user.mobileNumber}}</a><br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end contact -->
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
