@@ -1,0 +1,535 @@
+{
+	"info": {
+		"_postman_id": "ba8e5f7c-a7c1-4b7b-bc91-74eb40397db7",
+		"name": "XMAS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user\": {\r\n        \"userId\": \"11111\",\r\n        \"name\": \"Nithin Prasad\",\r\n        \"team\": [\r\n            \"LMNR\"\r\n        ],\r\n        \"emailId\": \"nithin.prasad@tcs.com\",\r\n        \"mobileNumber\": \"9567320219\"\r\n    },\r\n    \"preference\": [\r\n        \"Mobile\",\r\n        \"Samsung\"\r\n    ],\r\n    \"deliveryAddress\": \"123\",\r\n    \"postalCode\": \"1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:7777/user/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7777",
+					"path": [
+						"user",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "982168",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "982168_426",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:7777/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7777",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Status",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "982168",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "prasad",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:7777/user/status",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7777",
+					"path": [
+						"user",
+						"status"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "nithin",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "prasad",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:7777/logout",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7777",
+					"path": [
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All Users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:7777/user?team=BNI",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7777",
+					"path": [
+						"user"
+					],
+					"query": [
+						{
+							"key": "team",
+							"value": "BNI"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All Specific User",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user\": {\r\n        \"userId\": \"982168\",\r\n        \"name\": \"Nithin Prasad\",\r\n        \"team\": [\r\n            \"Digital\"\r\n        ],\r\n        \"emailId\": \"nithin.prasad@tcs.com\",\r\n        \"mobileNumber\": \"9567320219\"\r\n    },\r\n    \"preference\": [\r\n        \"Mobile\",\r\n        \"Samsung\"\r\n    ],\r\n    \"deliveryAddress\": \"123\",\r\n    \"postalCode\": \"1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:7777/user/12345",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7777",
+					"path": [
+						"user",
+						"12345"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get ALl Gifts",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user\": {\r\n        \"userId\": \"982168\",\r\n        \"name\": \"Nithin Prasad\",\r\n        \"team\": [\r\n            \"Digital\"\r\n        ],\r\n        \"emailId\": \"nithin.prasad@tcs.com\",\r\n        \"mobileNumber\": \"9567320219\"\r\n    },\r\n    \"preference\": [\r\n        \"Mobile\",\r\n        \"Samsung\"\r\n    ],\r\n    \"deliveryAddress\": \"123\",\r\n    \"postalCode\": \"1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:7777/user/gift",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7777",
+					"path": [
+						"user",
+						"gift"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET TEAM",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user\": {\r\n        \"userId\": \"982168\",\r\n        \"name\": \"Nithin Prasad\",\r\n        \"team\": [\r\n            \"Digital\"\r\n        ],\r\n        \"emailId\": \"nithin.prasad@tcs.com\",\r\n        \"mobileNumber\": \"9567320219\"\r\n    },\r\n    \"preference\": [\r\n        \"Mobile\",\r\n        \"Samsung\"\r\n    ],\r\n    \"deliveryAddress\": \"123\",\r\n    \"postalCode\": \"1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:7777/user/teams",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7777",
+					"path": [
+						"user",
+						"teams"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Shuffle",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user\": {\r\n        \"userId\": \"982168\",\r\n        \"name\": \"Nithin Prasad\",\r\n        \"team\": [\r\n            \"Digital\"\r\n        ],\r\n        \"emailId\": \"nithin.prasad@tcs.com\",\r\n        \"mobileNumber\": \"9567320219\"\r\n    },\r\n    \"preference\": [\r\n        \"Mobile\",\r\n        \"Samsung\"\r\n    ],\r\n    \"deliveryAddress\": \"123\",\r\n    \"postalCode\": \"1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:7777/xmas/makepair",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7777",
+					"path": [
+						"xmas",
+						"makepair"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Pairs",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user\": {\r\n        \"userId\": \"982168\",\r\n        \"name\": \"Nithin Prasad\",\r\n        \"team\": [\r\n            \"Digital\"\r\n        ],\r\n        \"emailId\": \"nithin.prasad@tcs.com\",\r\n        \"mobileNumber\": \"9567320219\"\r\n    },\r\n    \"preference\": [\r\n        \"Mobile\",\r\n        \"Samsung\"\r\n    ],\r\n    \"deliveryAddress\": \"123\",\r\n    \"postalCode\": \"1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:7777/xmas/pairs",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7777",
+					"path": [
+						"xmas",
+						"pairs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find Child",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user\": {\r\n        \"userId\": \"982168\",\r\n        \"name\": \"Nithin Prasad\",\r\n        \"team\": [\r\n            \"Digital\"\r\n        ],\r\n        \"emailId\": \"nithin.prasad@tcs.com\",\r\n        \"mobileNumber\": \"9567320219\"\r\n    },\r\n    \"preference\": [\r\n        \"Mobile\",\r\n        \"Samsung\"\r\n    ],\r\n    \"deliveryAddress\": \"123\",\r\n    \"postalCode\": \"1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:7777/user/child",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7777",
+					"path": [
+						"user",
+						"child"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Question",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"questionText\":\"BNI Question\",\r\n    \"description\": \"My des\",\r\n     \"team\": [\r\n            \"BNI\"\r\n        ]\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:7777/polls/question",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7777",
+					"path": [
+						"polls",
+						"question"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Questions",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"questionText\": \"Mover of mountains\",\r\n        \"description\": \"The ne who is capable of achieving the toughest of the tough targets with her/his hard work and dedication\",\r\n        \"team\": [\r\n            \"ADK\",\r\n            \"BNI\",\r\n            \"LMNR\",\r\n            \"BANCS_DGTL\",\r\n            \"KOCHI\",\r\n            \"BLR\",\r\n            \"DESIGN\"\r\n        ]\r\n    },\r\n    {\r\n        \"questionText\": \"Mr/Ms Consistent\",\r\n        \"description\": \"The one who is always consistently working\",\r\n        \"team\": [\r\n            \"ADK\",\r\n            \"BNI\",\r\n            \"LMNR\",\r\n            \"BANCS_DGTL\",\r\n            \"KOCHI\",\r\n            \"BLR\",\r\n            \"DESIGN\"\r\n        ]\r\n    },\r\n    {\r\n        \"questionText\": \"Mentoring Champion\",\r\n        \"description\": \"The one who master in sharing the knowledge\",\r\n        \"team\": [\r\n            \"ADK\",\r\n            \"BNI\",\r\n            \"LMNR\",\r\n            \"BANCS_DGTL\",\r\n            \"KOCHI\",\r\n            \"BLR\",\r\n            \"DESIGN\"\r\n        ]\r\n    },\r\n    {\r\n        \"questionText\": \"The Inspirer \",\r\n        \"description\": \"The one who inspires others and get the job done\",\r\n        \"team\": [\r\n            \"ADK\",\r\n            \"BNI\",\r\n            \"LMNR\",\r\n            \"BANCS_DGTL\",\r\n            \"KOCHI\",\r\n            \"BLR\",\r\n            \"DESIGN\"\r\n        ]\r\n    },\r\n    {\r\n        \"questionText\": \"Angry Bird \",\r\n        \"description\": \"The one who always seems as angry as an angrybird. (Even if they're not :D)\",\r\n        \"team\": [\r\n            \"ADK\",\r\n            \"BNI\",\r\n            \"LMNR\",\r\n            \"BANCS_DGTL\",\r\n            \"KOCHI\",\r\n            \"BLR\",\r\n            \"DESIGN\"\r\n        ]\r\n    },\r\n    {\r\n        \"questionText\": \"Walking Encyclopedia\",\r\n        \"description\": \"The one who knows everything\",\r\n        \"team\": [\r\n            \"ADK\",\r\n            \"BNI\",\r\n            \"LMNR\",\r\n            \"BANCS_DGTL\",\r\n            \"KOCHI\",\r\n            \"BLR\",\r\n            \"DESIGN\"\r\n        ]\r\n    },\r\n    {\r\n        \"questionText\": \"The Just-not-in-time\",\r\n        \"description\": \" The one who's always late for the meetings\",\r\n        \"team\": [\r\n            \"ADK\",\r\n            \"BNI\",\r\n            \"LMNR\",\r\n            \"BANCS_DGTL\",\r\n            \"KOCHI\",\r\n            \"BLR\",\r\n            \"DESIGN\"\r\n        ]\r\n    },\r\n    {\r\n        \"questionText\": \"Busy-Bee\",\r\n        \"description\": \"The one who is always busy\",\r\n        \"team\": [\r\n            \"ADK\",\r\n            \"BNI\",\r\n            \"LMNR\",\r\n            \"BANCS_DGTL\",\r\n            \"KOCHI\",\r\n            \"BLR\",\r\n            \"DESIGN\"\r\n        ]\r\n    },\r\n    {\r\n        \"questionText\": \"The chatty cathy\",\r\n        \"description\": \"The one who keeps talking. And never stops\",\r\n        \"team\": [\r\n            \"ADK\",\r\n            \"BNI\",\r\n            \"LMNR\",\r\n            \"BANCS_DGTL\",\r\n            \"KOCHI\",\r\n            \"BLR\",\r\n            \"DESIGN\"\r\n        ]\r\n    },\r\n    {\r\n        \"questionText\": \"The All Rounder\",\r\n        \"description\": \"The one having many different skills sets\",\r\n        \"team\": [\r\n            \"ADK\",\r\n            \"BNI\",\r\n            \"LMNR\",\r\n            \"BANCS_DGTL\",\r\n            \"KOCHI\",\r\n            \"BLR\",\r\n            \"DESIGN\"\r\n        ]\r\n    },\r\n    {\r\n        \"questionText\": \"Am i audible\",\r\n        \"description\": \"The one who thinks they're never audible, even if they are\",\r\n        \"team\": [\r\n            \"ADK\",\r\n            \"BNI\",\r\n            \"LMNR\",\r\n            \"BANCS_DGTL\",\r\n            \"KOCHI\",\r\n            \"BLR\",\r\n            \"DESIGN\"\r\n        ]\r\n    },\r\n    {\r\n        \"questionText\": \"Spontaneous responder\",\r\n        \"description\": \"The one who responds before completion of questions\",\r\n        \"team\": [\r\n            \"ADK\",\r\n            \"BNI\",\r\n            \"LMNR\",\r\n            \"BANCS_DGTL\",\r\n            \"KOCHI\",\r\n            \"BLR\",\r\n            \"DESIGN\"\r\n        ]\r\n    },\r\n    {\r\n        \"questionText\": \"Bug fixer of the year\",\r\n        \"description\": \"The one who can fix any bug\",\r\n        \"team\": [\r\n            \"ADK\",\r\n            \"BNI\",\r\n            \"LMNR\",\r\n            \"BANCS_DGTL\",\r\n            \"KOCHI\",\r\n            \"BLR\",\r\n            \"DESIGN\"\r\n        ]\r\n    },\r\n    {\r\n        \"questionText\": \"The Megaphone Mouth\",\r\n        \"description\": \"The one who is the loudest. You all know that person. They are the one who sounds like they are standing right next when they talk. You later find out that they don't even work in the same office. Their voice just carries that far\",\r\n        \"team\": [\r\n            \"ADK\",\r\n            \"BNI\",\r\n            \"LMNR\",\r\n            \"BANCS_DGTL\",\r\n            \"KOCHI\",\r\n            \"BLR\",\r\n            \"DESIGN\"\r\n        ]\r\n    },\r\n    {\r\n        \"questionText\": \"The Personal Caller \",\r\n        \"description\": \"The one who makes the most personal calls. They always have a doctors office to all, or a handyman to talk to. Their life too busy to put on pause for eight hours a day.\",\r\n        \"team\": [\r\n            \"ADK\",\r\n            \"BNI\",\r\n            \"LMNR\",\r\n            \"BANCS_DGTL\",\r\n            \"KOCHI\",\r\n            \"BLR\",\r\n            \"DESIGN\"\r\n        ]\r\n    },\r\n    {\r\n        \"questionText\": \"The Headphone Hero \",\r\n        \"description\": \"The one who is always wearing headphones. They can't hear you, and they probably don't want to. However, they will always pause to talk to you about their favorite podcasts\",\r\n        \"team\": [\r\n            \"ADK\",\r\n            \"BNI\",\r\n            \"LMNR\",\r\n            \"BANCS_DGTL\",\r\n            \"KOCHI\",\r\n            \"BLR\",\r\n            \"DESIGN\"\r\n        ]\r\n    },\r\n    {\r\n        \"questionText\": \"The Fastest Fingers\",\r\n        \"description\": \" This award is for the one who is always texting. We have no idea how they can send out so many messages and still get work done\",\r\n        \"team\": [\r\n            \"ADK\",\r\n            \"BNI\",\r\n            \"LMNR\",\r\n            \"BANCS_DGTL\",\r\n            \"KOCHI\",\r\n            \"BLR\",\r\n            \"DESIGN\"\r\n        ]\r\n    },\r\n    {\r\n        \"questionText\": \"The Super Spy \",\r\n        \"description\": \" The one who always knows what the other departments are doing. They are masters of eavesdropping and gathering information about interoffice communication (or lack thereof)\",\r\n        \"team\": [\r\n            \"ADK\",\r\n            \"BNI\",\r\n            \"LMNR\",\r\n            \"BANCS_DGTL\",\r\n            \"KOCHI\",\r\n            \"BLR\",\r\n            \"DESIGN\"\r\n        ]\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:7777/polls/questions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7777",
+					"path": [
+						"polls",
+						"questions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get QUestions",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:7777/polls/question?team=LMNR",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7777",
+					"path": [
+						"polls",
+						"question"
+					],
+					"query": [
+						{
+							"key": "team",
+							"value": "LMNR"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Vote",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"question\": {\r\n        \"questionId\": \"2\"\r\n    },\r\n    \"answer\": [\r\n       \r\n        {\r\n            \"userId\": \"333\"\r\n        }\r\n    ],\r\n    \"team\" : \"BNI\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:7777/polls/vote",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7777",
+					"path": [
+						"polls",
+						"vote"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete votes",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"question\": {\r\n        \"questionId\": \"3\"\r\n    },\r\n    \"answer\": [\r\n        {\r\n            \"userId\": \"982168\"\r\n        },\r\n         {\r\n            \"userId\": \"1620006\"\r\n        }\r\n    ],\r\n    \"team\" : \"BNI\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:7777/polls/vote",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7777",
+					"path": [
+						"polls",
+						"vote"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Results",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"question\": {\r\n        \"questionId\": \"3\"\r\n    },\r\n    \"answer\": [\r\n        {\r\n            \"userId\": \"982168\"\r\n        },\r\n         {\r\n            \"userId\": \"1620006\"\r\n        }\r\n    ],\r\n    \"team\" : \"BNI\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:7777/polls/results",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7777",
+					"path": [
+						"polls",
+						"results"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

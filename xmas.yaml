@@ -1,0 +1,574 @@
+{
+	"openapi": "3.0.1",
+	"info": {
+		"title": "OpenAPI definition",
+		"version": "v0"
+	},
+	"servers": [{
+		"url": "http://localhost:7777",
+		"description": "Generated server url"
+	}],
+	"paths": {
+		"/xmas/makepair": {
+			"post": {
+				"tags": ["xmas-controller"],
+				"operationId": "makePair",
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				}
+			}
+		},
+		"/user/signup": {
+			"post": {
+				"tags": ["user-controller"],
+				"operationId": "doSignup",
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/UserGiftPreference"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/UserAuth"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/polls/vote": {
+			"post": {
+				"tags": ["polls-controller"],
+				"operationId": "addQuestionAnswer",
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/QuestionAnswer"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/QuestionAnswer"
+								}
+							}
+						}
+					}
+				}
+			},
+			"delete": {
+				"tags": ["polls-controller"],
+				"operationId": "flush",
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				}
+			}
+		},
+		"/polls/questions": {
+			"post": {
+				"tags": ["polls-controller"],
+				"operationId": "addQuestions",
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "array",
+								"items": {
+									"$ref": "#/components/schemas/Question"
+								}
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"type": "array",
+									"items": {
+										"$ref": "#/components/schemas/Question"
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/polls/question": {
+			"get": {
+				"tags": ["polls-controller"],
+				"operationId": "getQuestion",
+				"parameters": [{
+					"name": "team",
+					"in": "query",
+					"required": false,
+					"schema": {
+						"type": "string",
+						"enum": ["ADK",
+						"BNI",
+						"LMNR",
+						"BANCS_DGTL",
+						"KOCHI",
+						"BLR",
+						"DESIGN"]
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"type": "array",
+									"items": {
+										"$ref": "#/components/schemas/Question"
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			"post": {
+				"tags": ["polls-controller"],
+				"operationId": "addQuestion",
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/Question"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/Question"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/xmas/pairs": {
+			"get": {
+				"tags": ["xmas-controller"],
+				"operationId": "getPaid",
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"type": "array",
+									"items": {
+										"$ref": "#/components/schemas/SecretSanta"
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/user": {
+			"get": {
+				"tags": ["user-controller"],
+				"operationId": "getUsers",
+				"parameters": [{
+					"name": "team",
+					"in": "query",
+					"required": false,
+					"schema": {
+						"type": "string",
+						"enum": ["ADK",
+						"BNI",
+						"LMNR",
+						"BANCS_DGTL",
+						"KOCHI",
+						"BLR",
+						"DESIGN"]
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"type": "array",
+									"items": {
+										"$ref": "#/components/schemas/User"
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/user/{id}": {
+			"get": {
+				"tags": ["user-controller"],
+				"operationId": "getSpecificUser",
+				"parameters": [{
+					"name": "id",
+					"in": "path",
+					"required": true,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/User"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/user/teams": {
+			"get": {
+				"tags": ["user-controller"],
+				"operationId": "getTeams",
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"type": "array",
+									"items": {
+										"type": "string",
+										"enum": ["ADK",
+										"BNI",
+										"LMNR",
+										"BANCS_DGTL",
+										"KOCHI",
+										"BLR",
+										"DESIGN"]
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/user/status": {
+			"get": {
+				"tags": ["user-controller"],
+				"operationId": "getStatus",
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/User"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/user/gift": {
+			"get": {
+				"tags": ["user-controller"],
+				"operationId": "getGifts",
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"type": "array",
+									"items": {
+										"$ref": "#/components/schemas/UserGiftPreference"
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/user/child": {
+			"get": {
+				"tags": ["user-controller"],
+				"operationId": "getChild",
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/UserGiftPreference"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/polls/results": {
+			"get": {
+				"tags": ["polls-controller"],
+				"operationId": "getResults",
+				"parameters": [{
+					"name": "team",
+					"in": "query",
+					"required": false,
+					"schema": {
+						"type": "string",
+						"enum": ["ADK",
+						"BNI",
+						"LMNR",
+						"BANCS_DGTL",
+						"KOCHI",
+						"BLR",
+						"DESIGN"]
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"type": "array",
+									"items": {
+										"$ref": "#/components/schemas/Results"
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"components": {
+		"schemas": {
+			"User": {
+				"type": "object",
+				"properties": {
+					"userId": {
+						"type": "string"
+					},
+					"name": {
+						"type": "string"
+					},
+					"team": {
+						"type": "array",
+						"items": {
+							"type": "string",
+							"enum": ["ADK",
+							"BNI",
+							"LMNR",
+							"BANCS_DGTL",
+							"KOCHI",
+							"BLR",
+							"DESIGN"]
+						}
+					},
+					"emailId": {
+						"type": "string"
+					},
+					"mobileNumber": {
+						"type": "string"
+					}
+				}
+			},
+			"UserGiftPreference": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"user": {
+						"$ref": "#/components/schemas/User"
+					},
+					"preference": {
+						"type": "array",
+						"items": {
+							"type": "string"
+						}
+					},
+					"deliveryAddress": {
+						"type": "string"
+					},
+					"postalCode": {
+						"type": "string"
+					}
+				}
+			},
+			"UserAuth": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"userId": {
+						"$ref": "#/components/schemas/User"
+					},
+					"password": {
+						"type": "string"
+					},
+					"userRoles": {
+						"type": "array",
+						"items": {
+							"type": "string",
+							"enum": ["ADMIN",
+							"USER"]
+						}
+					}
+				}
+			},
+			"Question": {
+				"type": "object",
+				"properties": {
+					"questionId": {
+						"type": "string"
+					},
+					"questionText": {
+						"type": "string"
+					},
+					"description": {
+						"type": "string"
+					},
+					"team": {
+						"type": "array",
+						"items": {
+							"type": "string",
+							"enum": ["ADK",
+							"BNI",
+							"LMNR",
+							"BANCS_DGTL",
+							"KOCHI",
+							"BLR",
+							"DESIGN"]
+						}
+					}
+				}
+			},
+			"QuestionAnswer": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"question": {
+						"$ref": "#/components/schemas/Question"
+					},
+					"answer": {
+						"uniqueItems": true,
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/User"
+						}
+					},
+					"team": {
+						"type": "string",
+						"enum": ["ADK",
+						"BNI",
+						"LMNR",
+						"BANCS_DGTL",
+						"KOCHI",
+						"BLR",
+						"DESIGN"]
+					},
+					"trackingId": {
+						"type": "string"
+					}
+				}
+			},
+			"SecretSanta": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"santa": {
+						"$ref": "#/components/schemas/User"
+					},
+					"child": {
+						"$ref": "#/components/schemas/User"
+					}
+				}
+			},
+			"Results": {
+				"type": "object",
+				"properties": {
+					"question": {
+						"$ref": "#/components/schemas/Question"
+					},
+					"results": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/UserResult"
+						}
+					},
+					"totalVotes": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"totalUniqueVotes": {
+						"type": "integer",
+						"format": "int32"
+					}
+				}
+			},
+			"UserResult": {
+				"type": "object",
+				"properties": {
+					"user": {
+						"$ref": "#/components/schemas/User"
+					},
+					"vote": {
+						"type": "integer",
+						"format": "int64"
+					}
+				}
+			}
+		}
+	}
+}
